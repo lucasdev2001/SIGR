@@ -46,7 +46,7 @@ export default () => (
         </div>
         <div className="d-grid gap-2 mb-3">
           <button className="btn btn-primary" type="button">
-            Cadastrar
+            cadastrar
           </button>
           <button className="btn btn-outline-light" type="button">
             <i className="bi bi-google" />

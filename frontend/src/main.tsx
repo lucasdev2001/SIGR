@@ -10,6 +10,7 @@ import {
 import Login from "./routes/auth/Login";
 import Cadastro from "./routes/auth/Cadastro";
 import ProtectedRoute from "./utils/ProtectedRoute";
+import LoginEquipe from "./routes/auth/LoginEquipe";
 
 //Rotas
 
@@ -17,12 +18,13 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Login />} />
-      <Route path="/cadastrar" element={<Cadastro />} />
+      <Route path="/cadastro" element={<Cadastro />} />
+      <Route path="/login-equipe" element={<LoginEquipe />} />
       <Route
         path="/cliente"
         element={
-          <ProtectedRoute>
-            <>Cliente Liberado</>
+          <ProtectedRoute user={null}>
+            <Cadastro />
           </ProtectedRoute>
         }
       />
