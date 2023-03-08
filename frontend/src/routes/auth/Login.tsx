@@ -20,11 +20,6 @@ export default () => (
             className="form-control bg-body"
             placeholder="email"
           />
-          <div className="form-text">
-            <NavLink to={"/cadastrar"} className="text-decoration-none">
-              Ainda não possuí uma conta ?
-            </NavLink>
-          </div>
         </div>
         <div className="mb-3">
           <input
@@ -42,9 +37,24 @@ export default () => (
             <i className="bi bi-google" />
           </button>
           <div className="form-text text-center">
-            <a href="#" className="text-decoration-none" id="autenticar-equipe">
-              faz parte da equipe Uai Sô ?
-            </a>
+            <NavLink
+              to={"/cadastro"}
+              className="text-decoration-none"
+              replace={true}
+            >
+              Ainda não tem uma conta ?
+            </NavLink>
+            <br />
+            ou
+            <br />
+            <NavLink
+              to={"/login-equipe"}
+              className="text-decoration-none"
+              id="autenticar-equipe"
+              replace={true}
+            >
+              Faz parte da equipe <u>Uai Sô</u> ?
+            </NavLink>
           </div>
         </div>
       </form>
