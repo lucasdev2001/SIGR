@@ -8,9 +8,9 @@ import {
   Route,
 } from "react-router-dom";
 import Login from "./routes/auth/Login";
-import Cadastro from "./routes/auth/Cadastro";
+import CadastroCliente from "./routes/auth/CadastroCliente";
 import ProtectedRoute from "./utils/ProtectedRoute";
-import LoginEquipe from "./routes/auth/LoginEquipe";
+import LoginFuncionario from "./routes/auth/LoginFuncionario";
 
 //Rotas
 
@@ -18,13 +18,16 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Login />} />
-      <Route path="/cadastro" element={<Cadastro />} />
-      <Route path="/login-equipe" element={<LoginEquipe />} />
+      <Route path="/cadastro" element={<CadastroCliente />} />
+      <Route path="/login-funcionario" element={<LoginFuncionario />} />
       <Route
-        path="/cliente"
+        path="/adm"
         element={
-          <ProtectedRoute user={null}>
-            <Cadastro />
+          <ProtectedRoute
+            unauthorizedRedirectTo="/login-funcionario"
+            usuario={localStorage.getItem("usuario")}
+          >
+            <>Olá Adm</>
           </ProtectedRoute>
         }
       />
