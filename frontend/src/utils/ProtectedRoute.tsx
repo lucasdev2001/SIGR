@@ -1,11 +1,12 @@
 import { Navigate } from "react-router-dom";
 
 export default function (props: {
-  user: string | null; // usuário da rota, ex: professor: Carlos
+  usuario: string | null;
+  unauthorizedRedirectTo: string;
   children: JSX.Element; //
 }) {
-  if (!props.user) {
-    return <Navigate to="/" replace={true} />
+  if (props.usuario === null) {
+    return <Navigate to={props.unauthorizedRedirectTo} replace={true} />;
   }
   return props.children;
 }
