@@ -14,19 +14,25 @@ import LoginFuncionario from "./routes/auth/LoginFuncionario";
 
 //Rotas
 
+function getUsuario() {
+  return sessionStorage.getItem("usuario");
+}
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route index element={<Login />} />
       <Route path="/cadastro" element={<CadastroCliente />} />
-      <Route path="/login-funcionario" element={<LoginFuncionario />} />
+      <Route
+        path="/login-funcionario"
+        element={
+          <LoginFuncionario usuario={sessionStorage.getItem("usuario")} />
+        }
+      />
       <Route
         path="/adm"
         element={
-          <ProtectedRoute
-            unauthorizedRedirectTo="/login-funcionario"
-            usuario={localStorage.getItem("usuario")}
-          >
+          <ProtectedRoute unauthorizedRedirectTo={"/"}>
             <>Olá Adm</>
           </ProtectedRoute>
         }
